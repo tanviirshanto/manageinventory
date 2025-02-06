@@ -1,7 +1,6 @@
-// models/Category.js
 import mongoose from "mongoose";
 
-const CategorySchema = new mongoose.Schema(
+const categorySchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -9,18 +8,13 @@ const CategorySchema = new mongoose.Schema(
       unique: true,
     },
     icon: {
-      type: String, // Store icon name or class (if using a font icon library)
-      required: true,
-    },
-    quantity: {
-      type: Number,
-      default: 0,
+      type: String,
     },
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 );
 
-export default mongoose.models.Category ||
-  mongoose.model("Category", CategorySchema);
+const Category =
+  mongoose.models.Category || mongoose.model("Category", categorySchema);
+
+export default Category;

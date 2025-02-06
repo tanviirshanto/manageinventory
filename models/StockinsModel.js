@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import Product from "./ProductModel";
+
 
 const stockinsSchema = new mongoose.Schema(
   {

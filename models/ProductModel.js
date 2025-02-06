@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import Category from "./CategoryModel";
+import Store from "./StoreModel";
 
 const productSchema = new mongoose.Schema(
   {
@@ -20,12 +22,16 @@ const productSchema = new mongoose.Schema(
       required: true,
       min: 0, // Stock cannot be negative
     },
-    location: {
-      type: [String], // Array of store names/locations
-      required: true,
-    },
+    stores: [
+      {
+        type: mongoose.Schema.Types.ObjectId, // Array of Store references
+        ref: "Store",
+        required: true,
+      },
+    ],
     category: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
       required: true,
     },
     currentPrice: {
@@ -34,7 +40,7 @@ const productSchema = new mongoose.Schema(
       min: 0, // Price cannot be negative
     },
     image: {
-      type: String, // Array of image URLs
+      type: String, // URL of the product image
       required: true,
     },
   },

@@ -33,7 +33,7 @@ const categories = await GetAllCategory();
         </div>
         <div className="flex gap-5 items-center">
           <Link
-            href="/add_product"
+            href="/add/category"
             className="text-white bg-purple-800 px-3 py-2 rounded-2xl"
           >
             + Add Category
@@ -46,7 +46,7 @@ const categories = await GetAllCategory();
           {!categories && <div>Loading...</div>}
           {categories?.map((category) => (
             <CategoryCard
-              icon={<FaShirt />}
+              icon={category.icon?category.icon:<FaShirt/>}
               name={category.name}
               quantity={category.quantity}
             />

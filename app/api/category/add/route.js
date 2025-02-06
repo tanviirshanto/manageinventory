@@ -8,10 +8,10 @@ export const POST = async (request) => {
     await connect();
 
     // Get the JSON data from the request body
-    const { name, icon, quantity } = await request.json();
+    const { name, icon} = await request.json();
 
     // Check if all fields are present
-    if (!name || !icon || quantity === undefined) {
+    if (!name) {
       return new Response('Missing required fields', { status: 400 });
     }
 
@@ -19,7 +19,6 @@ export const POST = async (request) => {
     const newCategory = new Category({
       name,
       icon,
-      quantity,
     });
 
     // Save the category to the database

@@ -32,7 +32,7 @@ const ProductTable = ({ products }) => {
         </div>
       </div>
 
-      <div className="overflow-x-scroll">
+      <div className="overflow-x-auto">
         <table className="w-full border-collapse border border-gray-300 text-center">
           <thead>
             <tr className="bg-gray-100 text-gray-500">

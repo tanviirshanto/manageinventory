@@ -28,7 +28,7 @@ const ProductRow = ({ product }) => {
       <td className="py-4 px-4">{product.name}</td>
       <td className="py-4 px-4">{product.currentPrice} $</td>
       <td className="py-4 px-4">{product.stock} in stock</td>
-      <td className="py-4 px-4">{product.category}</td>
+      <td className="py-4 px-4">{product.category.name}</td>
       <td className="py-4 px-4">
         {Array.isArray(product.location)
           ? `${product.location.length} stores`
