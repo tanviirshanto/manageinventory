@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from '../../dbConfig/dbConfig';
 import User from '../../models/UserModel';
-
+import Link from 'next/link';
 connect();
 
 async function GetAllUsers() {
@@ -17,14 +17,14 @@ export default async function Users() {
         <div className="flex flex-col gap-2">
           <h1 className="text-2xl font-semibold">Users</h1>
         </div>
-        {/* <div className="flex gap-5 items-center">
+        <div className="flex gap-5 items-center">
           <Link
             href="/create_user"
             className="text-white bg-purple-800 px-3 py-2 rounded-2xl"
           >
             + Create User
           </Link>
-        </div> */}
+        </div>
       </div>
 
       <div className="px-7 lg:px-14">

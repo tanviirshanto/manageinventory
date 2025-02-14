@@ -22,7 +22,7 @@ const ProductTable = ({ products }) => {
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
           />
-          <DropdownFilter />
+          {/* <DropdownFilter /> */}
           <Link
             href="/add_product"
             className="text-white bg-purple-700 px-3 py-2 rounded-2xl"
@@ -36,13 +36,13 @@ const ProductTable = ({ products }) => {
         <table className="w-full border-collapse border border-gray-300 text-center">
           <thead>
             <tr className="bg-gray-100 text-gray-500">
-              <th className="py-5 px-4">
+              {/* <th className="py-5 px-4">
                 <input
                   type="checkbox"
                   id="select-all-checkbox"
                   className="w-4 h-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
                 />
-              </th>
+              </th> */}
               <th className="py-5 px-4">Image</th>
               <th className="py-5 px-4">Item Code</th>
               <th className="py-5 px-4">Name of Product</th>

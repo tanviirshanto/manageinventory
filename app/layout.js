@@ -22,7 +22,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -30,7 +30,7 @@ export default async function RootLayout({ children }) {
           <Navbar />
           <div className="flex">
             <Sidebar />
-            <div className={`flex flex-col w-screen h-screen pt-[60px]`}>
+            <div className={`flex flex-col w-screen h-full pt-[60px]`}>
               {children}
             </div>
           </div>

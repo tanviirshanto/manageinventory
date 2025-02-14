@@ -16,9 +16,9 @@ const PermissionTable = ({permissions, setPermissions}) => {
   // };
 
   return (
-    <>
+    <div className="w-full overflow-x-auto">
       <table
-        className="table-auto w-full border-separate"
+        className="lg:table-auto w-full overflow-x-auto border-separate"
         style={{ borderSpacing: "0 10px" }}
       >
         <thead>
@@ -53,7 +53,7 @@ const PermissionTable = ({permissions, setPermissions}) => {
       {/* <pre className="mt-5 bg-gray-100 p-4 rounded">
         {JSON.stringify(permissions, null, 2)}
       </pre> */}
-    </>
+    </div>
   );
 };
 

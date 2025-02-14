@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 const AddStoreForm = () => {
   const [formData, setFormData] = useState({
@@ -97,7 +97,7 @@ const AddStoreForm = () => {
 
           <div className="flex flex-col gap-2 w-1/2">
             <label htmlFor="image" className="font-semibold">
-              Email
+              Image
             </label>
             <input
               type="text"

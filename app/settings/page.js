@@ -52,33 +52,22 @@ function Settings() {
   if (error) return <div className="text-red-600">{error}</div>;
 
   return (
-    <div className="w-[90%] lg:w-full">
+    <div className="w-screen lg:w-full">
       <div className="flex justify-between items-center bg-[#f3f3f3] px-10 py-5 overflow-hidden ">
         <div className="flex flex-col gap-2">
           <h1 className="text-2xl font-semibold">Personal Settings</h1>
         </div>
-        <div className="flex gap-5 items-center">
-          <Link
-            href="/create_user"
-            className="text-white bg-purple-800 px-3 py-2 rounded-2xl text-nowrap"
-          >
-            + Create User
-          </Link>
-        </div>
       </div>
 
-      <div className="flex flex-col gap-5 p-5 lg:w-full">
+      <div className="flex flex-col gap-5  lg:w-full mb-5 p-5">
         <Details userData={userData} />
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-8 w-full">
           <Roles roles={roles} setRoles={setRoles} />
-          <div className=" lg:w-full overflow-hidden">
-            {" "}
-            {/* Changed w-screen to w-full */}
-            <Permissions
-              permissions={permissions}
-              setPermissions={setPermissions}
-            />
-          </div>
+
+          <Permissions
+            permissions={permissions}
+            setPermissions={setPermissions}
+          />
         </div>
       </div>
     </div>

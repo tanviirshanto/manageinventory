@@ -15,6 +15,8 @@ import SalesChart from "../components/Home/salesChart";
 import SalesFigure from "../components/Home/salesFigure";
 import getTopSellingItems from "../components/Home/Functions/getTopSellingItems";
 import Image from "next/image";
+import Link from "next/link";
+import getStoreInfo from "../components/Home/Functions/getStoreInfo";
 // import getStockPerLocation from "../components/Home/Functions/getStockByLocation";
 
 const style2 =
@@ -28,6 +30,7 @@ export default async function Home() {
   const lowStockProducts  = await getLowStockProducts();
   console.log(lowStockProducts, totalStockins);
   const topSellingItems = await getTopSellingItems();
+  const stores = await getStoreInfo()
   // const { stockByLocation } = await getStockPerLocation();
 
   // console.log(stockByLocation);
@@ -38,9 +41,9 @@ export default async function Home() {
         <h1 className="text-2xl font-bold text-center">Last 30 Days</h1>
         <div className="flex justify-center  lg:gap-10 my-3 ">
           <StatusCard name="Total Sold" p1={totalSoldItem} p2="Unit" />
-          <StatusCard name="Revenue" p1={totalSales} p2="$" />
+          <StatusCard name="Total Sold" p1={totalSales} p2="Amount" />
           <StatusCard name="In Stock" p1={totalStockins} p2="Unit" />
-          <StatusCard name="Stocked" p1={totalAmount} p2="$" />
+          <StatusCard name="Stocked" p1={totalAmount} p2="Amount" />
         </div>
       </div>
 
@@ -49,7 +52,12 @@ export default async function Home() {
         <div className="w-full lg:w-1/3 bg-[#f3f3f3] p-5 rounded-2xl">
           <div className="flex justify-between items-center text-lg font-bold">
             <h1>Top Selling Items</h1>{" "}
-            <h1 className="text-sm font-semibold text-gray-500">View all</h1>
+            <Link
+              href="/products"
+              className="text-sm font-semibold text-gray-500"
+            >
+              View all
+            </Link>
           </div>
 
           <div className="flex flex-col gap-3 text-7xl text-[#4905a2]">
@@ -95,30 +103,37 @@ export default async function Home() {
         <div className="w-full lg:w-2/3 bg-[#f3f3f3] p-5 rounded-2xl">
           <div className="flex justify-between items-center text-lg font-bold">
             <h1>Stores list</h1>{" "}
-            <h1 className="text-sm font-semibold text-gray-500">View all</h1>
+            <Link
+              href="/stores"
+              className="text-sm font-semibold text-gray-500"
+            >
+              View all
+            </Link>
           </div>
-          <div className="mt-5 mb-3 flex flex-col gap-4">
-            <div className="flex justify-between">
-              <h1>Manchester, UK</h1>
-              <h1>25 employees</h1>
-              <h1>308 items</h1>
-              <h1>20 orders</h1>
-            </div>
-            <div className="flex justify-between">
-              <h1>Manchester, UK</h1>
-              <h1>25 employees</h1>
-              <h1>308 items</h1>
-              <h1>20 orders</h1>
-            </div>
-            <div className="flex justify-between">
-              <h1>Manchester, UK</h1>
-              <h1>25 employees</h1>
-              <h1>308 items</h1>
-              <h1>20 orders</h1>
-            </div>
+          <div className="overflow-x-auto">
+            <table className="mt-5 mb-3 w-full gap-4  ">
+              <tbody>
+                {stores.slice(0, 3).map((store) => (
+                  <tr className="text-center" key={store._id}>
+                    <td className="text-left align-middle p-2">
+                      {store.location}
+                    </td>
+                    <td className="text-left align-middle p-2">
+                      {store.email}
+                    </td>
+                    <td className="text-left align-middle p-2">308 items</td>
+                    <td className="text-right align-middle p-2">
+                      +{store.contactNumber}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
+
+      
     </div>
   );
 }

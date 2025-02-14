@@ -21,17 +21,17 @@ async function GetAllCategory() {
 async function Categories() {
 
 const categories = await GetAllCategory();
-  
+
   return (
     <div>
-      <div className="flex justify-between items-center bg-[#f3f3f3] px-10 py-5">
+      <div className="flex justify-between items-center bg-[#f3f3f3] p-10 gap-5  lg:flex-row flex-col">
         <div className="flex flex-col gap-2">
           <h1 className="text-2xl font-semibold">Categories</h1>
           <h2 className="text-sm text-gray-500">
             Last updated January 6,2025 at 1:56:20AM
           </h2>
         </div>
-        <div className="flex gap-5 items-center">
+        <div className="flex lg:flex-row flex-col gap-5 items-center">
           <Link
             href="/add/category"
             className="text-white bg-purple-800 px-3 py-2 rounded-2xl"
@@ -40,13 +40,13 @@ const categories = await GetAllCategory();
           </Link>
         </div>
       </div>
-      
-      <div className="px-10 py-5 flex flex-col gap-8">
-        <div className="flex w-[80%] mx-auto justify-between flex-wrap">
+
+      <div className="px-3 lg:px-10 py-5 flex flex-col gap-3 lg:gap-8">
+        <div className="flex lg:w-[80%] mx-auto justify-between flex-wrap">
           {!categories && <div>Loading...</div>}
           {categories?.map((category) => (
             <CategoryCard
-              icon={category.icon?category.icon:<FaShirt/>}
+              icon={category.icon ? category.icon : <FaShirt />}
               name={category.name}
               quantity={category.quantity}
             />

@@ -6,8 +6,10 @@ export function middleware(request) {
   // Public paths that don't require authentication
   const isPublicPath = ["/login"].includes(path);
 
-  // Get the token from cookies
-  const token = request.cookies.get("next-auth.session-token")?.value;
+  // Get the token from cookies (Handles both development and production)
+  const token =
+    request.cookies.get("__Secure-next-auth.session-token")?.value ||
+    request.cookies.get("next-auth.session-token")?.value;
 
   // If user is authenticated and trying to access a public path, redirect to home
   if (isPublicPath && token) {
@@ -19,11 +21,10 @@ export function middleware(request) {
     return NextResponse.redirect(new URL("/login", request.nextUrl));
   }
 
-  // Allow the request to proceed
   return NextResponse.next();
 }
 
-// Define the paths this middleware applies to
+// Apply middleware to all paths except Next.js internal files and API routes
 export const config = {
-  matcher: ["/((?!_next|favicon.ico|api).*)"], // Exclude paths like _next, static files, and API
+  matcher: ["/((?!_next|favicon.ico|api).*)"],
 };

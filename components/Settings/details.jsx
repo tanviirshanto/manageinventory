@@ -24,9 +24,12 @@ const Details = ({ userData }) => {
       </div>
 
       <div className="flex w-full">
-        <div className="flex flex-col gap-2 w-1/2">
+        <div className="flex flex-col gap-2 w-1/2 text-clip ">
           <h1 className="font-semibold">Company email</h1>
-          <h1>{userData.email}</h1>
+          <div className="w-[90%] lg:w-full overflow-hidden">
+            {" "}
+            <h1 className="">{userData.email}</h1>
+          </div>
         </div>
         <div className="flex flex-col gap-2 w-1/2">
           <h1 className="font-semibold">Store code</h1>

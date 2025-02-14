@@ -17,7 +17,7 @@ const storeSchema = new mongoose.Schema(
       sparse: true, // Allows multiple null values
     },
     image: {
-      type: String, // Array of image URLs
+      type: String, 
       required: true,
     },
   },

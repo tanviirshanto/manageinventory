@@ -5,7 +5,7 @@ export async function GET(req, {params}) {
     try {
         await connect();
 
-        const { _id } = params;
+        const { _id } = await params;
         // console.log(_id);
 
         const user = await User.findById(_id);

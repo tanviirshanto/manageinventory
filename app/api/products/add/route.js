@@ -25,10 +25,10 @@ export async function POST(req) {
     }
 
     // Convert location (comma-separated string) to an array
-    const locationArray =locationValue
-      .split(",")
-      .map((item) => item.trim())
-      .filter((item) => item);
+    // const locationArray =locationValue
+    //   .split(",")
+    //   .map((item) => item.trim())
+    //   .filter((item) => item);
 
       // Create new product
     const newProduct = await Product.create({
@@ -36,7 +36,7 @@ export async function POST(req) {
       itemCode,
       description,
       stock,
-      location: locationArray,
+      stores: locationValue,
       category,
       currentPrice,
       image,

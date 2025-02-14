@@ -22,7 +22,7 @@ const Sidebar = () => {
     // Hide sidebar toggle button if on the login page
     if (pathname === "/login") return null;
   return (
-    <div className="bg-[#f3f3f3] w-1/6 hidden lg:block">
+    <div className="bg-[#f3f3f3] h-[100ve] w-1/6 hidden lg:block">
       <div className="bg-[#7d2ce0] text-white  h-[calc(100vh-50px)] flex flex-col justify-between  text-sm font-semibold py-5 px-4 rounded-tr-xl fixed mt-[65px]">
         <div>
           <Link href="/" className={`${style1}`}>

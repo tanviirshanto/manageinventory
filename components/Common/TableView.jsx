@@ -27,7 +27,7 @@ const TableView = ({ items, headers, pageName }) => {
             setSearchQuery={setSearchQuery}
           />
           <div className="flex gap-5">
-            <DropdownFilter />
+            {/* <DropdownFilter /> */}
             <Link
               href={pageName === "Stock Ins" ? "/add_stockin" : "/add_sale"}
               className="text-white bg-purple-700 px-3 py-2 rounded-2xl"
@@ -38,17 +38,17 @@ const TableView = ({ items, headers, pageName }) => {
         </div>
       </div>
 
-      <div className="overflow-x-scroll">
+      <div className="overflow-x-auto">
         <table className="w-screen lg:w-full border-collapse border border-gray-300 text-center ">
           <thead>
             <tr className="bg-gray-100 text-gray-500">
-              <th className="py-5 px-4">
+              {/* <th className="py-5 px-4">
                 <input
                   type="checkbox"
                   id="select-all-checkbox"
                   className="w-4 h-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
                 />
-              </th>
+              </th> */}
               {headers.map((header, index) => (
                 <th key={index} className="py-5 px-4">
                   {header}

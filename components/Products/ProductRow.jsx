@@ -8,13 +8,13 @@ const ProductRow = ({ product }) => {
       className="border-b border-gray-200 hover:bg-gray-50"
       key={product.itemCode}
     >
-      <td className="py-4 px-4 text-center">
+      {/* <td className="py-4 px-4 text-center">
         <input
           type="checkbox"
           id="example-checkbox"
           className="w-4 h-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
         />
-      </td>
+      </td> */}
       <td className="py-4 px-4 flex justify-center">
         <Image
           src={product.image}
@@ -30,8 +30,8 @@ const ProductRow = ({ product }) => {
       <td className="py-4 px-4">{product.stock} in stock</td>
       <td className="py-4 px-4">{product.category.name}</td>
       <td className="py-4 px-4">
-        {Array.isArray(product.location)
-          ? `${product.location.length} stores`
+        {Array.isArray(product.stores)
+          ? `${product.stores.length} stores`
           : "No stores available"}
       </td>
     </tr>

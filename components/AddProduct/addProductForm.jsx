@@ -1,15 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
+import LocationSelector from "./locationSelector";
 
-const AddProductForm = ({ categories }) => {
+const AddProductForm = ({ categories, stores }) => {
   const parsedCategories = JSON.parse(categories);
+  const parsedStores = JSON.parse(stores);
+
   const [formData, setFormData] = useState({
     name: "",
     itemCode: "",
     description: "",
     stock: "",
-    locationValue: "",
+    locationValue: [],
     category: "",
     currentPrice: "",
     image: "",
@@ -39,7 +42,7 @@ const AddProductForm = ({ categories }) => {
           itemCode: "",
           description: "",
           stock: "",
-          location: "",
+          locationValue: [],
           category: "",
           currentPrice: "",
           image: "",
@@ -113,7 +116,7 @@ const AddProductForm = ({ categories }) => {
               ))}
             </select>
           </div>
-          <div className="flex flex-col gap-2 w-1/2">
+          {/* <div className="flex flex-col gap-2 w-1/2">
             <label htmlFor="locationValue" className="font-semibold">
               Location (Comma Separated)
             </label>
@@ -126,7 +129,8 @@ const AddProductForm = ({ categories }) => {
               className="bg-[#f3f3f3] px-5 py-3 border border-gray-300 rounded-xl"
               required
             />
-          </div>
+          </div> */}
+          <LocationSelector stores={parsedStores} formData={formData} setFormData={setFormData} />
         </div>
 
         {/* Current Price and stock */}
