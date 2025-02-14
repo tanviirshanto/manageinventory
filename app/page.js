@@ -5,7 +5,7 @@ import { PiPantsFill } from "react-icons/pi";
 import { FaHatCowboy } from "react-icons/fa";
 import { TbEyeglass2 } from "react-icons/tb";
 import { GiConverseShoe } from "react-icons/gi";
-
+import uniqid from "uniqid";
 import Sale from "../models/SalesModel";
 import { connect } from "../dbConfig/dbConfig"; // Ensure the correct path
 import getTotalStockinsLast30Days from "../components/Home/Functions/stockIns30Days";
@@ -22,15 +22,13 @@ import getStoreInfo from "../components/Home/Functions/getStoreInfo";
 const style2 =
   "p-2 w-1/4 h-20 rounded-xl flex justify-center items-center bg-[#e5d5f9]";
 
-
-
 export default async function Home() {
   const { totalSales, totalSoldItem } = await fetchSalesData();
   const { totalStockins, totalAmount } = await getTotalStockinsLast30Days();
-  const lowStockProducts  = await getLowStockProducts();
-  console.log(lowStockProducts, totalStockins);
+  const lowStockProducts = await getLowStockProducts();
+  // console.log(lowStockProducts, totalStockins);
   const topSellingItems = await getTopSellingItems();
-  const stores = await getStoreInfo()
+  const stores = await getStoreInfo();
   // const { stockByLocation } = await getStockPerLocation();
 
   // console.log(stockByLocation);
@@ -38,12 +36,12 @@ export default async function Home() {
   return (
     <div className="">
       <div className="bg-[#f3f3f3] py-3 ">
-        <h1 className="text-2xl font-bold text-center">Last 30 Days</h1>
+        <h1 className="text-2xl font-bold text-center">Last 30 Daaays</h1>
         <div className="flex justify-center  lg:gap-10 my-3 ">
-          <StatusCard name="Total Sold" p1={totalSoldItem} p2="Unit" />
-          <StatusCard name="Total Sold" p1={totalSales} p2="Amount" />
-          <StatusCard name="In Stock" p1={totalStockins} p2="Unit" />
-          <StatusCard name="Stocked" p1={totalAmount} p2="Amount" />
+          <StatusCard name="Total Sold" p1={totalSoldItem} p2="Unit" key={uniqid()} />
+          <StatusCard name="Total Sold" p1={totalSales} p2="Amount" key={uniqid()}/>
+          <StatusCard name="In Stock" p1={totalStockins} p2="Unit" key={uniqid()}/>
+          <StatusCard name="Stocked" p1={totalAmount} p2="Amount" key={uniqid()}/>
         </div>
       </div>
 
@@ -84,7 +82,7 @@ export default async function Home() {
             {!lowStockProducts && <div>No items</div>}
             {lowStockProducts &&
               lowStockProducts.map((item) => (
-                <div className="flex justify-between">
+                <div className="flex justify-between" key={item._id}>
                   <h1>{item.name}</h1>
                   <h1>{item.stock}</h1>
                 </div>
@@ -132,8 +130,6 @@ export default async function Home() {
           </div>
         </div>
       </div>
-
-      
     </div>
   );
 }

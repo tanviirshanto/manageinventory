@@ -19,7 +19,7 @@ const StoreCard = ({ store, storeDetails, setStoreDetails, selected, setSelected
           height={500}
           width={500}
           className="w-56 h-40 rounded-xl shadow-lg p-5"
-          alt={store.name}
+          alt={store.name||"store"}
         />
       </div>
       <h1 className="text-lg font-semibold pt-3 text-center">

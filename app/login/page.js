@@ -27,7 +27,7 @@ function Login() {
 
   return (
     <div className="bg-[#4b03a3] h-screen w-screen flex flex-col justify-center items-center gap-5 ">
-      <h1 className="font-bold text-3xl text-white mb-3">Manage Inventory</h1>
+      <h1 className="font-bold text-3xl text-white mb-3">Log in to Your Account</h1>
 
       <div>
         <h1 className="text-white mb-2 text-lg font-semibold">Email</h1>

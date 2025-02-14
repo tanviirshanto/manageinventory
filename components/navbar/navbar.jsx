@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import { MdAccountCircle } from "react-icons/md";
 import { IoIosNotifications } from "react-icons/io";
@@ -5,11 +6,13 @@ import Account from './account';
 import Link from 'next/link';
 import { CgMenuLeft, CgMenuRight } from "react-icons/cg";
 import ToggleSidebar from '../sidebar/toggleSidebar';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
+      const pathname = usePathname(); // Get current route
   
   return (
-    <div className="flex justify-between  bg-[#f3f3f3]  max-w-screen w-screen z-10 h-[70px] fixed  ">
+    <div className={`flex justify-between  ${pathname==='login'?'bg-[#7d2ce0]':'bg-[#f3f3f3]'}   max-w-screen w-screen z-10 h-[70px] fixed`}  >
       <div className="flex items-center  lg:pl-9 my-4 ">
         {" "}
         <ToggleSidebar/>

@@ -12,7 +12,7 @@ const StoreDetailsCard = ({storeDetails}) => {
             height={300}
             width={300}
             className="w-28 h-24 "
-            alt={storeDetails.location}
+            alt={storeDetails.location || "store"}
           />
         </div>
         <div className="font-semibold flex flex-col gap-3 text-gray-500">
