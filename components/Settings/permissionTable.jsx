@@ -50,9 +50,9 @@ const PermissionTable = ({permissions, setPermissions}) => {
       </table>
 
       {/* Debugging: Display Current State */}
-      <pre className="mt-5 bg-gray-100 p-4 rounded">
+      {/* <pre className="mt-5 bg-gray-100 p-4 rounded">
         {JSON.stringify(permissions, null, 2)}
-      </pre>
+      </pre> */}
     </div>
   );
 };

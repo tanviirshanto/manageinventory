@@ -37,7 +37,7 @@ const Roles = ({ roles, setRoles }) => {
             <input
               type="checkbox"
               id={`role-${role}`}
-              className="w-4 h-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+              className="w-4 h-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500 "
               checked={roles.includes(role)}
               readOnly={!isEditing} // Ensures input is interactive but not editable unless isEditing is true
               suppressHydrationWarning={true} // Suppresses Next.js warning

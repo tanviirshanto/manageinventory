@@ -27,9 +27,9 @@ const categories = await GetAllCategory();
       <div className="flex justify-between items-center bg-[#f3f3f3] p-10 gap-5  lg:flex-row flex-col">
         <div className="flex flex-col gap-2">
           <h1 className="text-2xl font-semibold">Categories</h1>
-          <h2 className="text-sm text-gray-500">
+          {/* <h2 className="text-sm text-gray-500">
             Last updated January 6,2025 at 1:56:20AM
-          </h2>
+          </h2> */}
         </div>
         <div className="flex lg:flex-row flex-col gap-5 items-center">
           <Link
