@@ -31,7 +31,7 @@ const Roles = ({ roles, setRoles }) => {
         </button>
       </div>
 
-      {["Manager", "Editor", "Supplier", "Seller", "Admin", "Finance"].map(
+      {["Manager", "Editor", "Supplier", "Seller", "Admin", "Finance","Viewer"].map(
         (role) => (
           <div key={role} className="flex items-center gap-5 mt-5 text-lg">
             <input

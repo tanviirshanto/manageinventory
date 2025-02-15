@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowDown,MdAccountCircle } from "react-icons/md";
 import { useSession, signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
 
@@ -21,48 +21,46 @@ const Account = () => {
         onClick={() => setView(!view)}
         className="flex p-2 gap-3 hover:bg-gray-300 rounded-2xl cursor-pointer select-none"
       >
-        <Image
-          src="/shirt.jpg"
-          height={300}
-          width={300}
-          alt="avatar"
-          className="w-8 h-8 rounded-full"
-        />
+        <div className="text-2xl"><MdAccountCircle /></div>
         <button>
           <MdKeyboardArrowDown />
         </button>
       </div>
       {view && session && (
-        <div className="absolute top-16 right-5 lg:right-10 h-auto w-80 lg:w-96 bg-slate-200 rounded-xl p-5 text-lg flex flex-col gap-3 z-50 shadow-xl">
+        <div className="absolute top-16 right-5 lg:right-10 h-auto w-80 lg:w-96 bg-[#7d2ce0] text-slate-100 rounded-xl p-5 text-lg flex flex-col gap-3 z-50 shadow-xl">
           <div className="flex items-center gap-4">
-            <div>
-              <Image
+            <div className=" text-6xl">
+              {/* <Image
                 src="/shirt.jpg"
                 height={300}
                 width={300}
                 alt="avatar"
                 className="w-14 lg:w-20 rounded-full"
-              />
+              /> */}
+              <MdAccountCircle />
             </div>
             <div className="text-lg">
-              <h1 className="text-black">{session.user.name}</h1>
-              <h1 className="text-gray-500">{session.user.email}</h1>
+              <h1 className="">{session.user.name}</h1>
+              <h1 className="text-gray-300">{session.user.email}</h1>
             </div>
           </div>
           <hr />
-          <div className=" hover:bg-slate-200 rounded-lg">
-            <Link href="" className="lg:px-5">
+          <div className=" hover:bg-slate-200 hover:text-slate-900 py-1 rounded-lg">
+            <Link href="/settings" className="lg:px-5" onClick={() => {
+              setView(false);}}>
               My Profile
             </Link>
           </div>
-          <div className="pt-3 hover:bg-slate-200 rounded-lg">
+          {/* <div className="pt-3 hover:bg-slate-200 rounded-lg">
             <Link href="" className="lg:px-5">
               Account Settings
             </Link>
-          </div>
+          </div> */}
           <div
-            onClick={() => signOut({ callbackUrl: "/login" })}
-            className="pt-3 hover:bg-slate-200 rounded-lg cursor-pointer lg:px-5"
+            onClick={() => {
+              setView(false);
+              signOut({ callbackUrl: "/login" })}}
+            className="py-1 hover:bg-slate-200 hover:text-slate-900 rounded-lg cursor-pointer lg:px-5"
           >
             Log out
           </div>

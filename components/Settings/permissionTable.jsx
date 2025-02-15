@@ -5,15 +5,15 @@ import ToggleButton from "./toggleButton";
 const PermissionTable = ({permissions, setPermissions}) => {
 
   // Handle toggle button change
-  // const handleToggleChange = (rowName, action) => {
-  //   setPermissions((prev) => ({
-  //     ...prev,
-  //     [rowName]: {
-  //       ...prev[rowName],
-  //       [action]: !prev[rowName][action],
-  //     },
-  //   }));
-  // };
+  const handleToggleChange = (rowName, action) => {
+    setPermissions((prev) => ({
+      ...prev,
+      [rowName]: {
+        ...prev[rowName],
+        [action]: !prev[rowName][action],
+      },
+    }));
+  };
 
   return (
     <div className="w-full overflow-x-auto">
@@ -39,7 +39,7 @@ const PermissionTable = ({permissions, setPermissions}) => {
                   <div className="flex justify-center items-center">
                     <ToggleButton
                       checked={permissions[rowName][action]}
-                      // onChange={() => handleToggleChange(rowName, action)}
+                      onChange={() => handleToggleChange(rowName, action)}
                     />
                   </div>
                 </td>
@@ -50,9 +50,9 @@ const PermissionTable = ({permissions, setPermissions}) => {
       </table>
 
       {/* Debugging: Display Current State */}
-      {/* <pre className="mt-5 bg-gray-100 p-4 rounded">
+      <pre className="mt-5 bg-gray-100 p-4 rounded">
         {JSON.stringify(permissions, null, 2)}
-      </pre> */}
+      </pre>
     </div>
   );
 };

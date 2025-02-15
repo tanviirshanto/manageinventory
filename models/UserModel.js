@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema(
     },
     roles: {
       type: [String],
-      enum: ["Manager", "Editor", "Supplier", "Seller", "Admin", "Finance"],
+      enum: ["Manager", "Editor", "Supplier", "Seller", "Admin", "Finance","Viewer"],
       required: true,
     },
     companySecret: {

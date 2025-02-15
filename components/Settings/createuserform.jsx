@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Permissions from "./permissions";
 
 const CreateUserForm = () => {
-  const roles = ["Manager", "Editor", "Supplier", "Seller", "Admin", "Finance"];
+  const roles = ["Manager", "Editor", "Supplier", "Seller", "Admin", "Finance","Viewer"];
 
   // State for name, email, password, roles, and loading
   const [name, setName] = useState("");

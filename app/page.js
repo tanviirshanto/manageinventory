@@ -20,7 +20,7 @@ import getStoreInfo from "../components/Home/Functions/getStoreInfo";
 // import getStockPerLocation from "../components/Home/Functions/getStockByLocation";
 
 const style2 =
-  "p-2 w-1/4 h-20 rounded-xl flex justify-center items-center bg-[#e5d5f9]";
+  "p-1 w-1/4 h-20 rounded-lg flex justify-center items-center bg-[#e5d5f9]";
 
 export default async function Home() {
   const { totalSales, totalSoldItem } = await fetchSalesData();
@@ -28,6 +28,7 @@ export default async function Home() {
   const lowStockProducts = await getLowStockProducts();
   // console.log(lowStockProducts, totalStockins);
   const topSellingItems = await getTopSellingItems();
+  console.log("topSellingItems", topSellingItems);
   const stores = await getStoreInfo();
   // const { stockByLocation } = await getStockPerLocation();
 
@@ -36,7 +37,7 @@ export default async function Home() {
   return (
     <div className="">
       <div className="bg-[#f3f3f3] py-3 ">
-        <h1 className="text-2xl font-bold text-center">Last 30 Daaays</h1>
+        <h1 className="text-2xl font-bold text-center">Last 30 Days</h1>
         <div className="flex justify-center  lg:gap-10 my-3 ">
           <StatusCard name="Total Sold" p1={totalSoldItem} p2="Unit" key={uniqid()} />
           <StatusCard name="Total Sold" p1={totalSales} p2="Amount" key={uniqid()}/>
@@ -67,6 +68,7 @@ export default async function Home() {
                     width={48}
                     height={48}
                     alt={`${item.name}`}
+                    className="rounded-full"
                   />
                 </div>
               ))}
